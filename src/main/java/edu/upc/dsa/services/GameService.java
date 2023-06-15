@@ -245,19 +245,19 @@ public class GameService {
         return Response.status(201).entity(entity).build();
     }
     @POST
-    @ApiOperation(value = "Añadir denuncia", notes = "asdasd")
+    @ApiOperation(value = "Añadir Consulta", notes = "asdasd")
     @ApiResponses(value = {
-            @ApiResponse(code = 201, message = "Successful", response = Denuncia.class),
+            @ApiResponse(code = 201, message = "Successful", response = Consulta.class),
             @ApiResponse(code = 500, message = "Validation Error")
 
     })
 
-    @Path("/añadirDenuncia")
+    @Path("/question")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response añadirDenuncia(Denuncia denuncia) {
+    public Response question(Consulta consulta) {
 
-        this.manager.añadirDenuncia(denuncia.getFecha(), denuncia.getNombre(), denuncia.getComentario());
-        return Response.status(201).entity(denuncia).build();
+        this.manager.añadirConsulta(consulta.getFecha(), consulta.getTitle(), consulta.getComentario(), consulta.getSender());
+        return Response.status(201).entity(consulta).build();
     }
     @GET
     @ApiOperation(value = "Lista de FAQ", notes = "asdas")

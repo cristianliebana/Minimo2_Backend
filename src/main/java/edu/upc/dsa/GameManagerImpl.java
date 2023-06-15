@@ -5,9 +5,6 @@ import edu.upc.dsa.models.Usuario;
 import edu.upc.dsa.models.dto.*;
 import edu.upc.eetac.dsa.FactorySession;
 import edu.upc.eetac.dsa.Session;
-import edu.upc.eetac.dsa.IUserDAO;
-import edu.upc.eetac.dsa.UserDAOImpl;
-import edu.upc.eetac.dsa.model.User;
 import org.apache.log4j.Logger;
 
 import java.util.ArrayList;
@@ -199,12 +196,12 @@ public class GameManagerImpl implements GameManager {
         logger.info("Se ha añadido correctamente");
     }
     @Override
-    public void añadirDenuncia(String fecha, String nombre, String comentario) {
+    public void añadirConsulta(String fecha, String nombre, String comentario,String sender) {
 
         Session session = null;
         try {
             session = FactorySession.openSession();
-            Denuncia u = new Denuncia(fecha, nombre, comentario);
+            Consulta u = new Consulta(fecha, nombre, comentario,sender);
             session.save(u);
         }
         catch (Exception e) {

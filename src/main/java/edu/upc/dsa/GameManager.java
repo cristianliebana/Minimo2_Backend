@@ -46,7 +46,7 @@ public interface GameManager {
 
     public void añadirRanking(String nickname,String fecha,double puntos,String avatar);
 
-    public void añadirDenuncia(String fecha, String nombre, String comentario);
+    public void añadirConsulta(String fecha, String title, String comentario,String sender);
 
     List<Ranking> listadeJugadoresOrdenadosPorPuntos();
 
